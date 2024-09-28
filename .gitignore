@@ -6,6 +6,9 @@ dist/
 build/
 out/
 
+# Custom output directory 
+output/
+
 # TypeScript cache files
 *.tsbuildinfo
 

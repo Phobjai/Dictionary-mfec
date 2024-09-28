@@ -1,9 +1,10 @@
 import { execSync } from 'child_process';
 import { createTextFiles } from './createFiles';
 import { organizeFiles } from './organizeFiles';
+import { reportFolderSize } from './reportSize';
 
 
-// Main function to run all the steps
+
 const main = async () => {
   try {
     console.log('Step 1 & 2: Creating text files for each word...');
@@ -12,6 +13,8 @@ const main = async () => {
     console.log('Step 3 & 4: Organizing files into a two-level directory structure...');
     organizeFiles();
 
+    console.log('Step 5: Generating folder size report...');
+    reportFolderSize();
    
     console.log('All steps completed successfully!');
   } catch (error) {
@@ -19,5 +22,4 @@ const main = async () => {
   }
 };
 
-// Run the main function
 main();
