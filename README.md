@@ -11,7 +11,7 @@ Follow the steps below to set up and run the project.
 You can clone the repository using Git or download the source code manually.
 
 ```bash
-git clone https://github.com/your-repo/Dictionary-mfec.git
+git clone https://github.com/Phobjai/Dictionary-mfec.git
 ```
 
 ### 2. Navigate to the Project Directory
