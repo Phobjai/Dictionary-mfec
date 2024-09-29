@@ -65,7 +65,7 @@ export const compressFolders = async () => {
       try {
         const zipSize = await zipDirectory(folderPath, zipPath);
         const zipSizeKB = (zipSize / 1000).toFixed(2); // Size in KB
-        const compressionRatio = (zipSize / folderSizeBefore * 100).toFixed(2);
+        const compressionRatio = ((1-(zipSize / folderSizeBefore)) * 100).toFixed(2);
 
         console.log(`${folder} - Size after compression: ${zipSizeKB} KB`);
         console.log(`${folder} - Compression ratio: ${compressionRatio}%`);
