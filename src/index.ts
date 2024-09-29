@@ -1,7 +1,8 @@
-import { execSync } from 'child_process';
 import { createTextFiles } from './createFiles';
 import { organizeFiles } from './organizeFiles';
 import { reportFolderSize } from './reportSize';
+import { compressFolders } from './compressFolders';
+
 
 
 
@@ -15,8 +16,10 @@ const main = async () => {
 
     console.log('Step 5: Generating folder size report...');
     reportFolderSize();
+
+    console.log('Step 6: Compressing folders and comparing sizes...');
+    compressFolders();
    
-    console.log('All steps completed successfully!');
   } catch (error) {
     console.error('An error occurred during the process:', error);
   }

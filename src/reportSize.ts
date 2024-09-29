@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Calculate size of the directory
-const getFolderSize = (folderPath: string): number => {
+export const getFolderSize = (folderPath: string): number => {
   let totalSize = 0;
 
   const files = fs.readdirSync(folderPath);
@@ -25,7 +25,15 @@ const getFolderSize = (folderPath: string): number => {
 // Function to report folder size and create a report.txt file with total size
 export const reportFolderSize = () => {
   const outputDir = path.join(__dirname, '..', 'output');
+  const reportDir = path.join(__dirname, '..', 'report');
   const folders = fs.readdirSync(outputDir);
+  
+
+
+  if (!fs.existsSync(reportDir)) {
+    fs.mkdirSync(reportDir);
+  }
+
 
   // for being report of report.txt
   let reportData = 'Report of folder sizes:\n'; 
@@ -55,9 +63,9 @@ export const reportFolderSize = () => {
   reportData += `\nTotal size: ${totalSizeKB} KB\n`;
 
   // Write the report to a report.txt file inside the output directory
-  const reportFilePath = path.join(outputDir, 'report.txt');
+  const reportFilePath = path.join(reportDir, 'report.txt');
   fs.writeFileSync(reportFilePath, reportData);
 
   console.log(`\nTotal size of all folders: ${totalSizeKB} KB`);
-  console.log(`Folder size report saved to: ${reportFilePath}`);
+  // console.log(`Folder size report saved to: ${reportFilePath}`);
 };

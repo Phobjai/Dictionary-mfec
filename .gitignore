@@ -8,6 +8,8 @@ out/
 
 # Custom output directory 
 output/
+zip/
+report/
 
 # TypeScript cache files
 *.tsbuildinfo
