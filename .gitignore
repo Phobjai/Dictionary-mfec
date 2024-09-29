@@ -11,6 +11,10 @@ output/
 zip/
 report/
 
+# Custom file
+*.db
+*.pdf
+
 # TypeScript cache files
 *.tsbuildinfo
 

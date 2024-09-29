@@ -2,6 +2,8 @@ import { createTextFiles } from './createFiles';
 import { organizeFiles } from './organizeFiles';
 import { reportFolderSize } from './reportSize';
 import { compressFolders } from './compressFolders';
+import { setupDatabase } from './insertData';
+import { exportToPDF } from './exportPdf';
 
 
 
@@ -19,6 +21,12 @@ const main = async () => {
 
     console.log('Step 6: Compressing folders and comparing sizes...');
     compressFolders();
+
+    await setupDatabase();
+  console.log('Database setup complete.');
+
+   await exportToPDF()
+   console.log("export to pdf success")
    
   } catch (error) {
     console.error('An error occurred during the process:', error);
