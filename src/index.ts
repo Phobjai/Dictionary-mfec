@@ -4,12 +4,17 @@ import { reportFolderSize } from './reportSize';
 import { compressFolders } from './compressFolders';
 import { setupDatabase } from './insertData';
 import { exportToPDF } from './exportPdf';
+import { cleanUpDirectories } from './cleanUpDirectories';
 
 
 
 
 const main = async () => {
   try {
+
+    console.log('Step 0 cleanup directories');
+    cleanUpDirectories();
+    
     console.log('Step 1 & 2: Creating text files for each word...');
     createTextFiles();
 
@@ -20,13 +25,13 @@ const main = async () => {
     reportFolderSize();
 
     console.log('Step 6: Compressing folders and comparing sizes...');
-    compressFolders();
+    await compressFolders();
 
     await setupDatabase();
-  console.log('Database setup complete.');
+    console.log('Database setup complete.');
 
    await exportToPDF()
-   console.log("export to pdf success")
+    console.log("export to pdf success")
    
   } catch (error) {
     console.error('An error occurred during the process:', error);
