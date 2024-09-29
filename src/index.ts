@@ -25,23 +25,23 @@ const main = async () => {
     // Step 0: Clean up directories
     if (!await runStep('Step 0: Cleaning up directories', cleanUpDirectories)) return;
 
-    // Step 1 & 2: Create text files for each word
-    if (!await runStep('Step 1 & 2: Creating text files', createTextFiles)) return;
+    // Step 1: Create text files for each word
+    if (!await runStep('Step 1: Creating text files', createTextFiles)) return;
 
-    // Step 3 & 4: Organizing files into a two-level directory structure
-    if (!await runStep('Step 3 & 4: Organizing files', organizeFiles)) return;
+    // Step 2: Organizing files into a two-level directory structure
+    if (!await runStep('Step 2: Organizing files', organizeFiles)) return;
 
-    // Step 5: Generating folder size report
-    if (!await runStep('Step 5: Reporting folder sizes', reportFolderSize)) return;
+    // Step 3: Generating folder size report
+    if (!await runStep('Step 3: Reporting folder sizes', reportFolderSize)) return;
 
-    // Step 6: Compressing folders and comparing sizes
-    if (!await runStep('Step 6: Compressing folders', compressFolders)) return;
+    // Step 4: Compressing folders and comparing sizes
+    if (!await runStep('Step 4: Compressing folders', compressFolders)) return;
 
-    // // Step 7: Setting up the database and inserting data
-    if (!await runStep('Step 7: Setting up database', setupDatabase)) return;
+    // // Step 5: Setting up the database and inserting data
+    if (!await runStep('Step 5: Setting up database', setupDatabase)) return;
 
-    // // Step 8: Exporting data to PDF
-    if (!await runStep('Step 8: Exporting to PDF', exportToPDF)) return;
+    // // Step 6: Exporting data to PDF
+    if (!await runStep('Step 6: Exporting to PDF', exportToPDF)) return;
 
     console.log('All tasks completed.');
   } catch (error) {
