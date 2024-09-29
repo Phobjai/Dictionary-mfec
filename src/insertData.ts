@@ -34,13 +34,11 @@ export const setupDatabase = async () => {
           await db.run('INSERT INTO words (word) VALUES (?)', word);
         } catch (err) {
 
-            const error = err as SqliteError;  // Cast err to the custom SqliteError type
+            const error = err as SqliteError;  
 
           // Handle UNIQUE constraint errors (duplicate words)
           if (error.code === 'SQLITE_CONSTRAINT') {
-            console.log(`Duplicate word skipped: ${word}`);
           } else {
-            // Log other errors and rethrow if necessary
             console.error(`Error inserting word ${word}:`, err);
             
           }
